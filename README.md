@@ -2,6 +2,8 @@
 
 原创文章，文章地址：[https://jetzihan.netlify.app/blog/rpeace](https://jetzihan.netlify.app/blog/rpeace)
 
+> 仅供学习使用，任何恶意使用与本人无关
+
 >调用报平安接口并使用 GitHub Actions 自动完成北林每日报平安。本脚本
 > 最大的特点是**不需要你有一台一直开着的主机或者服务器**，让 GitHub 完成这件事即可。
  
