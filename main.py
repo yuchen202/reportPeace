@@ -4,18 +4,24 @@ import execjs
 import os
 import requests
 
+# 微信推送
+from wechatpy import WeChatClient
+from wechatpy.client.api import WeChatMessage
+
 # 获取 GitHub Secrets 中的参数
 user_id = os.environ["STUDENT_ID"]  # 学号
-user_passwd = os.environ["PASSWORD"]    # 密码
-user_name= os.environ["NAME"]   # 姓名
+user_passwd = os.environ["PASSWORD"]  # 密码
+user_name = os.environ["NAME"]  # 姓名
 user_school = os.environ["SCHOOL"]  # 学院
-user_major = os.environ["MAJOR"]    # 专业
+user_major = os.environ["MAJOR"]  # 专业
 user_type = os.environ["TYPE"]  # 类型
-user_phone = os.environ["PHONE"]    # 手机号
+user_phone = os.environ["PHONE"]  # 手机号
 user_master = os.environ["MASTER"]  # 班主任
 user_building = os.environ["BUILDING"]  # 宿舍楼
 user_room = os.environ["ROOM"]  # 宿舍号
-
+app_id = os.environ["APP_ID"]  # 微信推送 app_id
+app_secret = os.environ["APP_SECRET"]  # 微信推送 app_secret
+template_id = os.environ["TEMPLATE_ID"]  # 微信推送 template_id
 
 # 报平安成功的时间
 report_time = datetime.datetime.now().strftime("%Y-%m-%d")
@@ -184,3 +190,25 @@ if __name__ == '__main__':
         print('报平安脚本：\n报平安失败！')
     elif status == -2:
         print('报平安脚本：\n已报平安，微信通知失败！')
+
+
+def send_message():
+    # 启用微信推送
+    if app_id:
+        client = WeChatClient(app_id, app_secret)
+        wm = WeChatMessage(client)
+        if status == -1:
+            data = {
+                "status": user_id + "报平安失败！",
+            }
+            res = wm.send_template(user_id, template_id, data)
+        elif status == -2:
+            data = {
+                "status": user_id + "已报平安，微信通知失败！",
+            }
+            res = wm.send_template(user_id, template_id, data)
+        else:
+            data = {
+                "status": user_id + "报平安成功！",
+            }
+            res = wm.send_template(user_id, template_id, data)
