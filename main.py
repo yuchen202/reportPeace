@@ -20,8 +20,7 @@ user_master = os.environ["MASTER"]  # 班主任
 user_building = os.environ["BUILDING"]  # 宿舍楼
 user_room = os.environ["ROOM"]  # 宿舍号
 app_id = os.environ["APP_ID"]  # 微信推送 app_id
-app_secret = os.environ["APP_SECRET"]  # 微信推送 app_secret
-template_id = os.environ["TEMPLATE_ID"]  # 微信推送 template_id
+if_wepush = os.environ["IF_WEPUSH"]  # 是否启用微信推送
 
 # 报平安成功的时间
 report_time = datetime.datetime.now().strftime("%Y-%m-%d")
@@ -184,25 +183,19 @@ def report():
             return 0
 
 
-if __name__ == '__main__':
-    status = report()
-    if status == -1:
-        print('报平安脚本：\n报平安失败！')
-    elif status == -2:
-        print('报平安脚本：\n已报平安，微信通知失败！')
-
-
-def send_message():
+def send_message(status_t):
+    app_secret = os.environ["APP_SECRET"]  # 微信推送 app_secret
+    template_id = os.environ["TEMPLATE_ID"]  # 微信推送 template_id
     # 启用微信推送
     if app_id:
         client = WeChatClient(app_id, app_secret)
         wm = WeChatMessage(client)
-        if status == -1:
+        if status_t == -1:
             data = {
                 "status": user_id + "报平安失败！",
             }
             res = wm.send_template(user_id, template_id, data)
-        elif status == -2:
+        elif status_t == -2:
             data = {
                 "status": user_id + "已报平安，微信通知失败！",
             }
@@ -212,3 +205,15 @@ def send_message():
                 "status": user_id + "报平安成功！",
             }
             res = wm.send_template(user_id, template_id, data)
+
+
+if __name__ == '__main__':
+    status = report()
+    if if_wepush == 1:
+        send_message(status)
+    if status == -1:
+        print('报平安脚本：\n报平安失败！')
+    elif status == -2:
+        print('报平安脚本：\n已报平安，微信通知失败！')
+
+

@@ -34,3 +34,6 @@ jobs:
       MASTER  : ${{ secrets.MASTER }}
       BUILDING  : ${{ secrets.BUILDING }}
       ROOM  : ${{ secrets.ROOM }}
+      IF_WEPUSH: ${{ secrets.IF_WEPUSH }}
+      APP_ID  : ${{ secrets.APP_ID }}
+      APP_SECRET  : ${{ secrets.APP_SECRET }}
