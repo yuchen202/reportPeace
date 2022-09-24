@@ -2,10 +2,10 @@ name: autoReportPeace
 
 on:
   repository_dispatch:
-    types: [morning]
+    types: [autoReportPeace]
   schedule:
-    - cron: '0 16,0 * * *'
-      # UTC 时间 16：00和 0：00对北京时间 0：00和 8：00
+    - cron: '11 16,0 * * *'
+      # UTC 时间 16：11和 0：11对北京时间 0：11和 8：11
   workflow_dispatch:
 jobs:
   send_message:
