@@ -19,7 +19,6 @@ user_phone = os.environ["PHONE"]  # 手机号
 user_master = os.environ["MASTER"]  # 班主任
 user_building = os.environ["BUILDING"]  # 宿舍楼
 user_room = os.environ["ROOM"]  # 宿舍号
-app_id = os.environ["APP_ID"]  # 微信推送 app_id
 if_wepush = os.environ["IF_WEPUSH"]  # 是否启用微信推送
 
 # 报平安成功的时间
@@ -184,6 +183,7 @@ def report():
 
 
 def send_message(status_t):
+    app_id = os.environ["APP_ID"]  # 微信推送 app_id
     app_secret = os.environ["APP_SECRET"]  # 微信推送 app_secret
     template_id = os.environ["TEMPLATE_ID"]  # 微信推送 template_id
     # 启用微信推送
