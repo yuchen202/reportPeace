@@ -1,6 +1,9 @@
 # 北林自动报平安脚本
 
->调用报平安接口并使用 GitHub Actions 自动完成北林每日报平安。
+原创文章，文章地址：[https://jetzihan.netlify.app/blog/rpeace](https://jetzihan.netlify.app/blog/rpeace)
+
+>调用报平安接口并使用 GitHub Actions 自动完成北林每日报平安。本脚本
+> 最大的特点是**不需要你有一台一直开着的主机或者服务器**，让 GitHub 完成这件事即可。
  
 主逻辑来自  [@Memory](https://github.com/Memorywzd?tab=repositories)
 
@@ -37,7 +40,7 @@
 
 ```md
 STUDENT_ID # 学号，示例：201002401
-PASSWORD # 密码，示例：abc123123123
+PASSWORD # 密码，示例：abc123123123，也就是你的校园网密码
 NAME # 姓名，示例：张三
 SCHOOL # 学院，示例：信息学院
 MAJOR # 专业，示例：计算机科学与技术
@@ -109,7 +112,7 @@ corn: '30 1 * * 3,5'
 
 ### 手动测试
 
-除了定时测试外，我们还支持手动进行测试。你只需要打开 GutHub Action 界面。选中左侧的 `autoReportPeace`，点击右侧的下拉栏中的 `Run workflow`，即可手动执行。
+除了定时测试外，我们还支持手动进行测试。你只需要打开 GitHub Action 界面。选中左侧的 `autoReportPeace`，点击右侧的下拉栏中的 `Run workflow`，即可手动执行。
 
 ![2](https://jetzihan-img.oss-cn-beijing.aliyuncs.com/blog/1663991441170.png)
 
