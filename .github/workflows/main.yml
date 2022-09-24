@@ -3,6 +3,9 @@ name: autoReportPeace
 on:
   repository_dispatch:
     types: [morning]
+  schedule:
+    - cron: '0 16,0 * * *'
+      # UTC 时间 16：00和 0：00对北京时间 0：00和 8：00
   workflow_dispatch:
 jobs:
   send_message:
@@ -34,7 +37,3 @@ jobs:
       MASTER  : ${{ secrets.MASTER }}
       BUILDING  : ${{ secrets.BUILDING }}
       ROOM  : ${{ secrets.ROOM }}
-      IF_WEPUSH: ${{ secrets.IF_WEPUSH }}
-      APP_ID  : ${{ secrets.APP_ID }}
-      APP_SECRET  : ${{ secrets.APP_SECRET }}
-      WE_USER_ID  : ${{ secrets.WE_USER_ID }}
