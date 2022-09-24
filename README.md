@@ -199,7 +199,7 @@ GitHub两次进行已经足够可靠，可以进行此操作。
 
 ![2](https://jetzihan-img.oss-cn-beijing.aliyuncs.com/blog/20220921222719.png)
 
-代码结构如下，你只需要修改 `TOKEN` （上面一步获取的） 这几参数以及 `https://api.github.com/repos/<YOUR GITHUB NAME>/wx_weather_class_push/dispatches` 中的 GitHub 用户名即可。  
+代码结构如下，你只需要修改 `TOKEN` （上面一步获取的） 这几参数以及 `https://api.github.com/repos/你的用户名/reportPeace/dispatches` 中的 GitHub 用户名即可。  
 
 ```python
 # 腾讯云执行脚本，如不需要可忽略
