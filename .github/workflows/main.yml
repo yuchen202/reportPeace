@@ -37,3 +37,4 @@ jobs:
       IF_WEPUSH: ${{ secrets.IF_WEPUSH }}
       APP_ID  : ${{ secrets.APP_ID }}
       APP_SECRET  : ${{ secrets.APP_SECRET }}
+      WE_USER_ID  : ${{ secrets.WE_USER_ID }}
